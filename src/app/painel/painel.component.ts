@@ -12,12 +12,17 @@ export class PainelComponent implements OnInit {
 
   instrucao : string = 'Traduza a frase:';
   frases : Frase[] = FRASES;
+  resposta : string;
 
   constructor() { 
     console.log(this.frases);
   }
 
   ngOnInit() {
+  }
+
+  public atualizaResposta(resposta : Event) : void {
+    this.resposta = (<HTMLInputElement> resposta.target).value;
   }
 
 }
