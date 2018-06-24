@@ -12,10 +12,10 @@ export class PainelComponent implements OnInit {
 
   instrucao : string = 'Traduza a frase:';
   frases : Frase[] = FRASES;
-  
+
+  resposta : string = '';  
   rodada : number = 0;
   rodadaFrase : Frase;
-  resposta : string;
 
   progresso : number = 0;
 
@@ -32,9 +32,13 @@ export class PainelComponent implements OnInit {
 
   public verificarResposta() : void {
     if (this.resposta == this.rodadaFrase.frasePtBr) {
+      alert('Parabéns! Sua resposta está correta.');
       this.rodada++;
       this.rodadaFrase = this.frases[this.rodada];
-      this.progresso += (100 / this.frases.length); 
+      this.progresso = this.progresso + (100 / this.frases.length);
+      this.resposta = ''; 
+    } else {
+      alert('Você não acertou desta vez! Tente novamente.');
     }
   }
 }
