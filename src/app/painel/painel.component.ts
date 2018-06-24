@@ -12,10 +12,15 @@ export class PainelComponent implements OnInit {
 
   instrucao : string = 'Traduza a frase:';
   frases : Frase[] = FRASES;
+  
+  rodada : number = 0;
+  rodadaFrase : Frase;
   resposta : string;
 
+  progresso : number = 0;
+
   constructor() { 
-    console.log(this.frases);
+    this.rodadaFrase = this.frases[this.rodada];
   }
 
   ngOnInit() {
@@ -25,4 +30,11 @@ export class PainelComponent implements OnInit {
     this.resposta = (<HTMLInputElement> resposta.target).value;
   }
 
+  public verificarResposta() : void {
+    if (this.resposta == this.rodadaFrase.frasePtBr) {
+      this.rodada++;
+      this.rodadaFrase = this.frases[this.rodada];
+      this.progresso += (100 / this.frases.length); 
+    }
+  }
 }
