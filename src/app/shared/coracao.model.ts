@@ -7,7 +7,9 @@ export class Coracao {
         public urlCoracaoVazio : string = '/assets/coracao_vazio.png'
     ) { }
 
-    public exibirCoracao() {
-        return this.cheio ? this.urlCoracaoCheio : this.urlCoracaoVazio;
+    public exibirCoracao() : string {
+        return this.cheio 
+            ? this.urlCoracaoCheio 
+            : this.urlCoracaoVazio;
     }
 }
