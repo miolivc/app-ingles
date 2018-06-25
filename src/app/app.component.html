@@ -1,2 +1,15 @@
 <app-topo></app-topo>
-<app-painel (encerrarJogo)="encerrarJogo($event)"></app-painel>
+<div *ngIf="jogoEmAndamento; else fimDeJogo">
+    <app-painel (encerrarJogo)="encerrarJogo($event)"></app-painel>
+</div>
+<ng-template #fimDeJogo>
+    <div class="container" style="margin-top: 50px">
+        <div class="row">
+            <div class="col">
+                <h3 class="{{tipo}}">
+                    {{mensagem}}
+                </h3>
+            </div>
+        </div>
+    </div>
+</ng-template>

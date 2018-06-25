@@ -35,10 +35,9 @@ export class PainelComponent implements OnInit {
 
   public verificarResposta() : void {
     if (this.resposta == this.rodadaFrase.frasePtBr) {
-      alert('Parabéns! Sua resposta está correta.');
       this.rodada++;
       if (this.rodada === this.frases.length) {
-        this.encerrarJogo.emit('vitória');
+        this.encerrarJogo.emit('vitoria');
       } else {
         this.atualizarRodada();
       }
