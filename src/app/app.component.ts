@@ -17,7 +17,13 @@ export class AppComponent {
     if (tipo === 'derrota') {
       this.mensagem = "Jogo finalizado! Você perdeu! :(";
     } else {
-      this.mensagem = "Parabéns! Você conseguiu finalizar o jogo!";
+      this.mensagem = "Parabéns! Você finalizou o jogo! :D";
     }
+  }
+
+  public reiniciarJogo() : void {
+    this.tipo = undefined;
+    this.mensagem = undefined;
+    this.jogoEmAndamento = true;
   }
 }
